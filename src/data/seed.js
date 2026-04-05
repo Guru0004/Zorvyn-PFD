@@ -10,7 +10,7 @@ export const SEEDED_TRANSACTIONS = [
   {
     id: "t_002",
     date: "2026-04-03T08:00:00.000Z",
-    amount: 25000,
+    amount: 500,
     category: "Investment Return",
     type: "income",
     description: "Interest from Bank"
