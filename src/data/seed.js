@@ -25,7 +25,7 @@ export const SEEDED_TRANSACTIONS = [
   },
   {
     id: "t_004",
-    date: "2026-03-01T08:00:00.000Z",
+    date: "2026-04-01T08:00:00.000Z",
     amount: 1000,
     category: "Gifts",
     type: "income",
