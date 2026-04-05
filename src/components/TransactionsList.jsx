@@ -46,7 +46,7 @@ export function TransactionsList() {
 
   return (
     <Card className="flex flex-col gap-6 relative">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-row md:flex-row md:items-center justify-between gap-4">
         <h3 className="text-xl font-bold tracking-tight">Recent Transactions</h3>
         
         <div className="flex items-center gap-2">
