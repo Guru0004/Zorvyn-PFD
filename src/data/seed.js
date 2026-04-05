@@ -17,6 +17,14 @@ export const SEEDED_TRANSACTIONS = [
   },
   {
     id: "t_003",
+    date: "2026-04-02T10:15:00.000Z",
+    amount: -220,
+    category: "Food & Groceries",
+    type: "expense",
+    description: "Weekly groceries shopping"
+  },
+  {
+    id: "t_004",
     date: "2026-03-01T08:00:00.000Z",
     amount: 1000,
     category: "Gifts",
@@ -24,7 +32,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Birthday gift from parents"
   },
   {
-    id: "t_004",
+    id: "t_005",
     date: "2026-03-28T10:15:00.000Z",
     amount: -425,
     category: "Dining",
@@ -32,7 +40,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Lunch at Cafe Verde"
   },
   {
-    id: "t_005",
+    id: "t_006",
     date: "2026-03-27T08:00:00.000Z",
     amount: 25000,
     category: "Salary",
@@ -40,7 +48,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "March Salary"
   },
   {
-    id: "t_006",
+    id: "t_007",
     date: "2026-03-25T14:30:00.000Z",
     amount: -220.0,
     category: "Groceries",
@@ -48,7 +56,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Weekly groceries"
   },
   {
-    id: "t_007",
+    id: "t_008",
     date: "2026-02-15T09:00:00.000Z",
     amount: -180.0,
     category: "Transport",
@@ -56,7 +64,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Monthly metro pass"
   },
   {
-    id: "t_008",
+    id: "t_009",
     date: "2026-03-01T12:00:00.000Z",
     amount: -150.0,
     category: "Entertainment",
@@ -64,7 +72,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Hotstar subscription"
   },
   {
-    id: "t_009",
+    id: "t_010",
     date: "2026-03-20T18:00:00.000Z",
     amount: -850.0,
     category: "Shopping",
@@ -72,7 +80,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "New shoes"
   },
   {
-    id: "t_010",
+    id: "t_011",
     date: "2026-03-15T10:00:00.000Z",
     amount: -500.0,
     category: "Utilities",
@@ -80,7 +88,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Electricity bill"
   },
   {
-    id: "t_011",
+    id: "t_012",
     date: "2026-03-10T09:00:00.000Z",
     amount: 1500.0,
     category: "Freelance",
@@ -88,7 +96,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Logo design project"
   },
   {
-    id: "t_012",
+    id: "t_013",
     date: "2026-03-05T15:00:00.000Z",
     amount: -300.0,
     category: "Dining",
@@ -96,7 +104,7 @@ export const SEEDED_TRANSACTIONS = [
     description: "Coffee and snacks"
   },
   {
-    id: "t_013",
+    id: "t_014",
     date: "2026-02-28T10:00:00.000Z",
     amount: 25000,
     category: "Salary",
