@@ -8,33 +8,44 @@ Zorvyn is a premium, high-performance personal finance dashboard designed for cl
 
 ![Dashboard Preview](https://via.placeholder.com/1200x600?text=Zorvyn+Finance+Dashboard+Preview)
 
-## ✨ Features
+## 📋 Overview of Approach
 
-- **💰 Financial Overview**: Real-time summary cards for Total Balance, Monthly Income, and Monthly Expenses with interactive growth trends.
-- **📈 Advanced Visualizations**:
-  - **Balance Trend**: Interactive Area Chart showing your net worth over time.
-  - **Spending Breakdown**: Dynamic Pie Chart with category-specific filtering.
-  - **Cash Flow**: Dual-line chart comparing Income vs. Expenses.
-- **📑 Transaction Management**:
-  - Full CRUD functionality (Add, Edit, Delete).
-  - context-aware category selection based on transaction type.
-  - Robust form validation and real-time error feedback.
-  - "Show More" smart pagination for clean list management.
-- **🔍 Powerful Filtering**: Filter transactions by date range (7d, 30d, 90d, All), search query, or transaction type.
-- **🔐 Role-Based Access Control**:
-  - **Admin**: Full control over transactions and settings.
-  - **Viewer**: Read-only access to charts and history.
-- **🌗 Dark Mode**: Full theme support with automatic system detection.
-- **⚡ Optimized Performance**: Custom Rollup chunk splitting for lightning-fast initial loads and granular library fetching.
+Zorvyn is architected as a high-fidelity **Single Page Application (SPA)** that prioritizes user experience and data portability. Key design philosophies include:
+- **Zero-Setup Persistence**: Uses `localStorage` to provide an instant, "out-of-the-box" experience without requiring a complex backend setup.
+- **Glassmorphism UI**: A consistent design language using blurred layers, subtle borders, and smooth Framer Motion transitions for a premium feel.
+- **Efficient State Management**: Utilizes a centralized **Context API + useReducer** architecture to manage global state (transactions, filtering, and theme) with high performance and low overhead.
+- **Granular Loading**: Implements a custom **Manual Chunking Strategy** to ensure the initial load is lightweight, deferring heavy visualization and animation libraries.
+
+## ✨ Key Features
+
+### 💰 Financial Intelligence
+- **Real-time Summaries**: Interactive cards for Total Balance, Monthly Income, and Expenses with dynamic trend indicators.
+- **Financial Insights**: Automated analysis providing Savings Rate metrics, Top Spending Categories, and daily averages.
+- **Advanced Visualizations**:
+  - **Balance Trend Chart**: Area chart showing net worth progression.
+  - **Cash Flow Chart**: Line chart comparing Income vs. Expenses.
+  - **Spending Breakdown**: Filterable Pie Chart for categorical analysis.
+
+### 📑 Transaction Management
+- **Full CRUD Support**: Effortlessly add, edit, or delete transactions with instant dashboard synchronization.
+- **Smart Searching**: Search transactions by **Title**, **Category**, or even specific **Dollar Amounts**.
+- **Context-Aware Inputs**: Transaction forms automatically filter categories based on the selected type (Income/Expense).
+- **Infinite Discovery**: "Show More" pagination keeps the Recent Transactions list clean and performant.
+
+### 🛡️ Data & Accessibility
+- **Portability**: Full support for **Import & Export (JSON)**. Backup your data as a file or restore it to move between devices.
+- **Role-Based Access**: Toggle between **Admin** (full control) and **Viewer** (read-only) modes via the integrated Profile Menu.
+- **Dark Mode**: Premium theme support with automatic system preference detection.
+- **Empty States**: Helpful "Not enough data" placeholders guide users through new account setups or strict filtering.
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [React 19](https://react.dev/)
+- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Charts**: [Recharts](https://recharts.org/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Deployment**: [Vercel](https://vercel.com/) with Integrated Analytics
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
 ## 🚀 Getting Started
 
@@ -43,32 +54,31 @@ Zorvyn is a premium, high-performance personal finance dashboard designed for cl
 - Node.js (>= 20.0.0)
 - npm (>= 10.0.0)
 
-### Installation
+### Installation & Development
 
-1. Clone the repository:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/Guru0004/Zorvyn-PFD.git
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. Start the development server:
+3. **Start the development server**:
    ```bash
    npm run dev
    ```
 
-## 🏗️ Build & Optimization
+### Build & Production
 
-To create an optimized production build:
-
+To create an optimized production bundle:
 ```bash
 npm run build
 ```
 
-This project uses a custom **Manual Chunking Strategy** in `vite.config.js` to split large libraries (`recharts`, `framer-motion`) into separate files, ensuring the dashboard loads instantly even on slower connections.
+This project is configured with an explicit **`vercel.json`** and standardized dependencies to ensure seamless deployment on the Vercel platform.
 
 ## 📝 License
 

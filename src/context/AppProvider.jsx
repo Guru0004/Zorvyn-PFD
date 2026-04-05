@@ -28,16 +28,26 @@ const initialState = {
     isOpen: false,
     transaction: null,
   },
+  settingsModal: {
+    isOpen: false,
+  },
 };
 
 // Reducer
 function appReducer(state, action) {
   switch (action.type) {
+    case 'OPEN_SETTINGS':
+      return { ...state, settingsModal: { isOpen: true } };
+    case 'CLOSE_SETTINGS':
+      return { ...state, settingsModal: { isOpen: false } };
     case 'OPEN_MODAL':
       return { ...state, modal: { isOpen: true, transaction: action.payload || null } };
     case 'CLOSE_MODAL':
       return { ...state, modal: { ...state.modal, isOpen: false } };
     case 'SET_TRANSACTIONS':
+      if (!action.isInitialLoad) {
+        localStorage.setItem(PERSISTENCE_KEYS.TRANSACTIONS, JSON.stringify(action.payload));
+      }
       return { ...state, transactions: action.payload, isInitialLoad: false };
     case 'ADD_TRANSACTION':
       const newTransactionsAdd = [action.payload, ...state.transactions];

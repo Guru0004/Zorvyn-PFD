@@ -54,7 +54,8 @@ export function useTransactions() {
   const listFilteredTransactions = useMemo(() => {
     const filtered = globalFilteredTransactions.filter((t) => {
       const matchesQuery = t.description.toLowerCase().includes(listFilters.query.toLowerCase()) ||
-                          t.category.toLowerCase().includes(listFilters.query.toLowerCase());
+                          t.category.toLowerCase().includes(listFilters.query.toLowerCase()) ||
+                          Math.abs(t.amount).toString().includes(listFilters.query);
       
       const matchesType = listFilters.type === 'all' || t.type === listFilters.type;
       

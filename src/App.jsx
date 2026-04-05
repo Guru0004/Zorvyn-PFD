@@ -8,6 +8,7 @@ import { SummaryCard as CardSummary } from './components/SummaryComponents';
 import { TransactionsList } from './components/TransactionsList';
 import { InsightsPanel } from './components/InsightsPanel';
 import { TransactionModal } from './components/TransactionModal';
+import { SettingsModal } from './components/SettingsModal';
 
 function AppContent() {
   const { stats, allTimeStats, chartData, categoryData, modal, dispatch } = useTransactions();
@@ -78,6 +79,7 @@ function AppContent() {
         onClose={() => dispatch({ type: 'CLOSE_MODAL' })} 
         transaction={modal.transaction}
       />
+      <SettingsModal />
     </div>
   );
 }

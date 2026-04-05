@@ -29,52 +29,63 @@ export function BalanceTrendChart({ data, title }) {
       </div>
       
       <div className="flex-1 w-full relative min-h-0">
-        <div className="absolute inset-0 -ml-4 md:-ml-6 -mb-2">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-              <defs>
-                <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
-              <XAxis 
-                dataKey="date" 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
-                tickFormatter={(val) => new Date(val).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
-                minTickGap={30}
-              />
-              <YAxis 
-                axisLine={false} 
-                tickLine={false} 
-                width={40}
-                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
-                tickFormatter={(val) => formatCompactNumber(val)}
-              />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'hsl(var(--card))', 
-                  borderColor: 'hsl(var(--border))',
-                  borderRadius: 'var(--radius)',
-                  boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                  fontSize: '12px'
-                }}
-                formatter={(value) => [formatCurrency(value), 'Balance']}
-              />
-              <Area 
-                type="monotone" 
-                dataKey="balance" 
-                stroke="hsl(var(--primary))" 
-                strokeWidth={3}
-                fillOpacity={1} 
-                fill="url(#colorBalance)" 
-                animationDuration={1500}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+        <div className="absolute inset-0">
+          {data.length > 0 ? (
+            <div className="absolute inset-0 -ml-4 md:-ml-6 -mb-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                  <XAxis 
+                    dataKey="date" 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
+                    tickFormatter={(val) => new Date(val).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
+                    minTickGap={30}
+                  />
+                  <YAxis 
+                    axisLine={false} 
+                    tickLine={false} 
+                    width={40}
+                    tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
+                    tickFormatter={(val) => formatCompactNumber(val)}
+                  />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: 'hsl(var(--card))', 
+                      borderColor: 'hsl(var(--border))',
+                      borderRadius: 'var(--radius)',
+                      boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                      fontSize: '12px'
+                    }}
+                    formatter={(value) => [formatCurrency(value), 'Balance']}
+                  />
+                  <Area 
+                    type="monotone" 
+                    dataKey="balance" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth={3}
+                    fillOpacity={1} 
+                    fill="url(#colorBalance)" 
+                    animationDuration={1500}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2">
+              <div className="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center">
+                <AreaChart size={24} className="opacity-20" />
+              </div>
+              <p className="text-sm font-medium">Not enough data for this period</p>
+            </div>
+          )}
         </div>
       </div>
     </Card>
@@ -175,55 +186,66 @@ export function IncomeExpenseChart({ data, title }) {
       </div>
       
       <div className="flex-1 w-full relative min-h-0">
-        <div className="absolute inset-0 -ml-4 md:-ml-6 -mb-2">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
-              <XAxis 
-                dataKey="date" 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
-                tickFormatter={(val) => new Date(val).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
-                minTickGap={30}
-              />
-              <YAxis 
-                axisLine={false} 
-                tickLine={false} 
-                width={40}
-                tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
-                tickFormatter={(val) => formatCompactNumber(val)}
-              />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'hsl(var(--card))', 
-                  borderColor: 'hsl(var(--border))',
-                  borderRadius: 'var(--radius)',
-                  boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                  fontSize: '12px'
-                }}
-                formatter={(value, name) => [formatCurrency(value), name.charAt(0).toUpperCase() + name.slice(1)]}
-              />
-              <Line 
-                type="monotone" 
-                dataKey="income" 
-                stroke="hsl(var(--success))" 
-                strokeWidth={3}
-                dot={{ fill: 'hsl(var(--success))', strokeWidth: 2, r: 4, stroke: 'hsl(var(--card))' }}
-                activeDot={{ r: 6, strokeWidth: 0 }}
-                animationDuration={1500}
-              />
-              <Line 
-                type="monotone" 
-                dataKey="expenses" 
-                stroke="hsl(var(--destructive))" 
-                strokeWidth={3}
-                dot={{ fill: 'hsl(var(--destructive))', strokeWidth: 2, r: 4, stroke: 'hsl(var(--card))' }}
-                activeDot={{ r: 6, strokeWidth: 0 }}
-                animationDuration={1500}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+        <div className="absolute inset-0">
+          {data.length > 0 ? (
+            <div className="absolute inset-0 -ml-4 md:-ml-6 -mb-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                  <XAxis 
+                    dataKey="date" 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
+                    tickFormatter={(val) => new Date(val).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
+                    minTickGap={30}
+                  />
+                  <YAxis 
+                    axisLine={false} 
+                    tickLine={false} 
+                    width={40}
+                    tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }}
+                    tickFormatter={(val) => formatCompactNumber(val)}
+                  />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: 'hsl(var(--card))', 
+                      borderColor: 'hsl(var(--border))',
+                      borderRadius: 'var(--radius)',
+                      boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                      fontSize: '12px'
+                    }}
+                    formatter={(value, name) => [formatCurrency(value), name.charAt(0).toUpperCase() + name.slice(1)]}
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="income" 
+                    stroke="hsl(var(--success))" 
+                    strokeWidth={3}
+                    dot={{ fill: 'hsl(var(--success))', strokeWidth: 2, r: 4, stroke: 'hsl(var(--card))' }}
+                    activeDot={{ r: 6, strokeWidth: 0 }}
+                    animationDuration={1500}
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="expenses" 
+                    stroke="hsl(var(--destructive))" 
+                    strokeWidth={3}
+                    dot={{ fill: 'hsl(var(--destructive))', strokeWidth: 2, r: 4, stroke: 'hsl(var(--card))' }}
+                    activeDot={{ r: 6, strokeWidth: 0 }}
+                    animationDuration={1500}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <div className="h-full flex flex-col items-center justify-center text-muted-foreground gap-2">
+              <div className="w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center">
+                <LineChart size={24} className="opacity-20" />
+              </div>
+              <p className="text-sm font-medium">Not enough data for this period</p>
+            </div>
+          )}
         </div>
       </div>
     </Card>
