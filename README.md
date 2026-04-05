@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# 📊 Zorvyn - Modern Personal Finance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Vercel Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-Currently, two official plugins are available:
+Zorvyn is a premium, high-performance personal finance dashboard designed for clarity and efficiency. Built with React 19 and styled with a sleek glassmorphism aesthetic, it provides real-time insights into your spending habits, income trends, and overall financial health.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Dashboard Preview](https://via.placeholder.com/1200x600?text=Zorvyn+Finance+Dashboard+Preview)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **💰 Financial Overview**: Real-time summary cards for Total Balance, Monthly Income, and Monthly Expenses with interactive growth trends.
+- **📈 Advanced Visualizations**:
+  - **Balance Trend**: Interactive Area Chart showing your net worth over time.
+  - **Spending Breakdown**: Dynamic Pie Chart with category-specific filtering.
+  - **Cash Flow**: Dual-line chart comparing Income vs. Expenses.
+- **📑 Transaction Management**:
+  - Full CRUD functionality (Add, Edit, Delete).
+  - context-aware category selection based on transaction type.
+  - Robust form validation and real-time error feedback.
+  - "Show More" smart pagination for clean list management.
+- **🔍 Powerful Filtering**: Filter transactions by date range (7d, 30d, 90d, All), search query, or transaction type.
+- **🔐 Role-Based Access Control**:
+  - **Admin**: Full control over transactions and settings.
+  - **Viewer**: Read-only access to charts and history.
+- **🌗 Dark Mode**: Full theme support with automatic system detection.
+- **⚡ Optimized Performance**: Custom Rollup chunk splitting for lightning-fast initial loads and granular library fetching.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/) with Integrated Analytics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (>= 20.0.0)
+- npm (>= 10.0.0)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Guru0004/Zorvyn-PFD.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🏗️ Build & Optimization
+
+To create an optimized production build:
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This project uses a custom **Manual Chunking Strategy** in `vite.config.js` to split large libraries (`recharts`, `framer-motion`) into separate files, ensuring the dashboard loads instantly even on slower connections.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📝 License
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Built with ❤️ by [Guru0004](https://github.com/Guru0004)
