@@ -111,11 +111,15 @@ export function AppProvider({ children }) {
     const savedRole = localStorage.getItem(PERSISTENCE_KEYS.ROLE);
     const savedTheme = localStorage.getItem(PERSISTENCE_KEYS.THEME);
 
-    if (savedTransactions) {
-      dispatch({ type: 'SET_TRANSACTIONS', payload: JSON.parse(savedTransactions) });
-    } else {
-      dispatch({ type: 'SET_TRANSACTIONS', payload: SEEDED_TRANSACTIONS });
-    }
+    const timer = setTimeout(() => {
+      if (savedTransactions) {
+        dispatch({ type: 'SET_TRANSACTIONS', payload: JSON.parse(savedTransactions), isInitialLoad: true });
+      } else {
+        dispatch({ type: 'SET_TRANSACTIONS', payload: SEEDED_TRANSACTIONS, isInitialLoad: true });
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
 
     if (savedRole) {
       dispatch({ type: 'SET_ROLE', payload: savedRole });

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useTransactions } from '../hooks/useTransactions';
-import { Card, Button } from './UIPrimitives';
+import { Card, Button, Skeleton } from './UIPrimitives';
 import { Search, Filter, Plus, MoreHorizontal, ArrowUpRight, ArrowDownRight, ArrowUpDown, Trash2, Edit } from 'lucide-react';
 import { formatCurrency, formatDate, getRelativeDate } from '../utils/formatUtils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TransactionModal } from './TransactionModal';
 
 export function TransactionsList() {
-  const { transactions, listFilters, dispatch, role } = useTransactions();
+  const { transactions, listFilters, dispatch, role, isInitialLoad } = useTransactions();
   const [searchTerm, setSearchTerm] = useState(listFilters.query);
   const [activeMenuId, setActiveMenuId] = useState(null);
   const [showAll, setShowAll] = useState(false);
@@ -114,7 +114,9 @@ export function TransactionsList() {
           </thead>
           <tbody className="divide-y relative">
             <AnimatePresence mode="popLayout">
-              {displayedTransactions.length > 0 ? (
+              {isInitialLoad ? (
+                [...Array(5)].map((_, i) => <TransactionTableSkeleton key={`skele-row-${i}`} />)
+              ) : displayedTransactions.length > 0 ? (
                 displayedTransactions.map((t, index) => (
                   <motion.tr
                     layout
@@ -211,7 +213,9 @@ export function TransactionsList() {
       {/* Mobile Card View */}
       <div className="md:hidden space-y-4">
         <AnimatePresence mode="popLayout">
-          {displayedTransactions.length > 0 ? (
+          {isInitialLoad ? (
+             [...Array(5)].map((_, i) => <TransactionCardSkeleton key={`skele-card-${i}`} />)
+          ) : displayedTransactions.length > 0 ? (
             displayedTransactions.map((t, index) => (
               <motion.div
                 layout
@@ -316,6 +320,46 @@ function EmptyState({ dispatch }) {
       >
         Clear Filters
       </Button>
+    </div>
+  );
+}
+
+export function TransactionTableSkeleton() {
+  return (
+    <tr className="animate-pulse">
+      <td className="px-4 py-5">
+        <div className="flex items-center gap-3">
+          <Skeleton className="w-8 h-8 rounded-lg" />
+          <Skeleton className="w-32 h-4" />
+        </div>
+      </td>
+      <td className="px-4 py-5"><Skeleton className="w-20 h-6 rounded-lg" /></td>
+      <td className="px-4 py-5">
+        <div className="space-y-1">
+          <Skeleton className="w-16 h-3" />
+          <Skeleton className="w-20 h-2" />
+        </div>
+      </td>
+      <td className="px-4 py-5 text-right"><Skeleton className="w-24 h-4 ml-auto" /></td>
+      <td className="px-4 py-5"><Skeleton className="w-8 h-8 rounded-lg mx-auto" /></td>
+    </tr>
+  );
+}
+
+export function TransactionCardSkeleton() {
+  return (
+    <div className="p-4 rounded-2xl border border-border/50 bg-secondary/5 flex items-center gap-4 animate-pulse">
+      <Skeleton className="w-12 h-12 rounded-2xl" />
+      <div className="flex-1 space-y-2">
+        <div className="flex justify-between">
+          <Skeleton className="w-24 h-4" />
+          <Skeleton className="w-16 h-4" />
+        </div>
+        <div className="flex gap-2">
+          <Skeleton className="w-12 h-3" />
+          <Skeleton className="w-12 h-3" />
+        </div>
+      </div>
     </div>
   );
 }

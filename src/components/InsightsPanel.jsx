@@ -1,5 +1,5 @@
 import { useTransactions } from '../hooks/useTransactions';
-import { Card } from './UIPrimitives';
+import { Card, Skeleton } from './UIPrimitives';
 import { MiniKPIChip } from './SummaryComponents';
 import { Zap, BarChart3, PieChart, Info, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { formatCurrency } from '../utils/formatUtils';
@@ -83,6 +83,29 @@ export function InsightsPanel() {
             </div>
           </div>
         )}
+      </div>
+    </Card>
+  );
+}
+
+export function InsightsSkeleton() {
+  return (
+    <Card className="flex flex-col gap-6">
+      <Skeleton className="w-40 h-7" />
+      <div className="space-y-6">
+        <div className="p-4 rounded-xl bg-muted/10 border border-border/50 space-y-4">
+          <div className="flex justify-between">
+            <Skeleton className="w-24 h-4" />
+            <Skeleton className="w-16 h-5" />
+          </div>
+          <Skeleton className="w-32 h-10" />
+          <Skeleton className="w-full h-2 rounded-full" />
+        </div>
+        <div className="space-y-3">
+          <Skeleton className="w-full h-12 rounded-xl" />
+          <Skeleton className="w-full h-12 rounded-xl" />
+          <Skeleton className="w-full h-12 rounded-xl" />
+        </div>
       </div>
     </Card>
   );

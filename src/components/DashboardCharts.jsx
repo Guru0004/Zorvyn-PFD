@@ -14,7 +14,7 @@ import {
   Line,
   Legend
 } from 'recharts';
-import { Card } from './UIPrimitives';
+import { Card, Skeleton } from './UIPrimitives';
 import { formatCurrency, formatCompactNumber } from '../utils/formatUtils';
 
 export function BalanceTrendChart({ data, title }) {
@@ -247,6 +247,26 @@ export function IncomeExpenseChart({ data, title }) {
             </div>
           )}
         </div>
+      </div>
+    </Card>
+  );
+}
+
+export function ChartSkeleton() {
+  return (
+    <Card className="h-[350px] sm:h-[400px] flex flex-col gap-6 overflow-hidden">
+      <div className="flex items-center justify-between">
+        <Skeleton className="w-32 h-6" />
+        <Skeleton className="w-24 h-4" />
+      </div>
+      <div className="flex-1 w-full flex items-end justify-between px-2 pb-2 gap-2">
+        {[...Array(12)].map((_, i) => (
+          <Skeleton 
+            key={i} 
+            className="flex-1 rounded-t-lg bg-primary/10" 
+            style={{ height: `${Math.random() * 60 + 20}%` }} 
+          />
+        ))}
       </div>
     </Card>
   );

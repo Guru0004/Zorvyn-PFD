@@ -86,6 +86,7 @@ export function useTransactions() {
     listFilters,
     role: state.role,
     modal: state.modal,
+    isInitialLoad: state.isInitialLoad,
     dispatch
   };
 }
