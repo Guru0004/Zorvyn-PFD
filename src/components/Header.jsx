@@ -81,7 +81,7 @@ export function Header() {
         <div className="flex items-center gap-3 md:gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/20 shrink-0">
-              <span className="text-primary-foreground font-bold text-xl leading-none">Z</span>
+              <span className="text-primary-foreground font-bold text-xl leading-none">PFD</span>
             </div>
             <h1 className="text-lg md:text-xl font-bold tracking-tight xs:block">Personal Finance Dashboard</h1>
           </div>
