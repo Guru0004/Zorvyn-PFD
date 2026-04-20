@@ -97,7 +97,7 @@ function AppContent() {
       </main>
 
       <footer className="max-w-[1400px] mx-auto p-8 mt-12 border-t text-center text-sm text-muted-foreground">
-        <p>&copy; 2026 Zorvyn Finance. All rights reserved.</p>
+        <p>&copy; 2026 Guru veera prasath M. All rights reserved.</p>
       </footer>
 
       <Suspense fallback={null}>

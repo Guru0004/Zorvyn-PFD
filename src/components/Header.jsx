@@ -83,7 +83,7 @@ export function Header() {
             <div className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/20 shrink-0">
               <span className="text-primary-foreground font-bold text-xl leading-none">Z</span>
             </div>
-            <h1 className="text-lg md:text-xl font-bold tracking-tight xs:block">Zorvyn</h1>
+            <h1 className="text-lg md:text-xl font-bold tracking-tight xs:block">Personal Finance Dashboard</h1>
           </div>
           
           

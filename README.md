@@ -1,16 +1,16 @@
-# 📊 Zorvyn - Modern Personal Finance Dashboard
+# 📊 PFD - Modern Personal Finance Dashboard
 
 [![Vercel Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 [![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-Zorvyn is a premium, high-performance personal finance dashboard designed for clarity and efficiency. Built with React 19 and styled with a sleek glassmorphism aesthetic, it provides real-time insights into your spending habits, income trends, and overall financial health.
+Personal Finance Dashboard is a premium, high-performance personal finance dashboard designed for clarity and efficiency. Built with React 19 and styled with a sleek glassmorphism aesthetic, it provides real-time insights into your spending habits, income trends, and overall financial health.
 
-![Dashboard Preview](https://via.placeholder.com/1200x600?text=Zorvyn+Finance+Dashboard+Preview)
+![Dashboard Preview](https://via.placeholder.com/1200x600?text=Personal+Finance+Dashboard+Preview)
 
 ## 📋 Overview of Approach
 
-Zorvyn is architected as a high-fidelity **Single Page Application (SPA)** that prioritizes user experience and data portability. Key design philosophies include:
+Personal Finance Dashboard is architected as a high-fidelity **Single Page Application (SPA)** that prioritizes user experience and data portability. Key design philosophies include:
 - **Zero-Setup Persistence**: Uses `localStorage` to provide an instant, "out-of-the-box" experience without requiring a complex backend setup.
 - **Glassmorphism UI**: A consistent design language using blurred layers, subtle borders, and smooth Framer Motion transitions for a premium feel.
 - **Efficient State Management**: Utilizes a centralized **Context API + useReducer** architecture to manage global state (transactions, filtering, and theme) with high performance and low overhead.

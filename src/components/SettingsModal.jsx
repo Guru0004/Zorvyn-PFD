@@ -45,7 +45,7 @@ export function SettingsModal() {
             handleClose();
           }
         } else {
-          alert('Invalid data format. Please upload a valid Zorvyn backup file.');
+          alert('Invalid data format. Please upload a valid PFD backup file.');
         }
       } catch (err) {
         alert('Failed to parse file. Please ensure it is a valid JSON file.');
@@ -118,7 +118,7 @@ export function SettingsModal() {
 
               <div className="mt-8 pt-6 border-t border-border/50 text-center">
                 <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-bold">
-                  Zorvyn Finance v1.0.0
+                  PFD v1.0.0
                 </p>
               </div>
             </Card>
